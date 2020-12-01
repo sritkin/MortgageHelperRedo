@@ -15,6 +15,7 @@ namespace MortgageHelper2WebMVC.Controllers
         public ActionResult Index()
         {
             var model = new PropertyListItem[0];
+
             return View(model);
         }
         // GET: Property

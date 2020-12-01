@@ -13,6 +13,8 @@ namespace MortgageHelperData
         [Key]
         public int PropertyID { get; set; }
         [Required]
+        public Guid UserID { get; set; }
+        [Required]
         public string Name { get; set; }
         [Required]
         public string Address { get; set; }

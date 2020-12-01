@@ -54,11 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeatureService.cs" />
+    <Compile Include="MortgageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyService.cs" />
+    <Compile Include="RatingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MortgageHelperData\MortgageHelperData.csproj">
+      <Project>{6e8e2dc1-6b08-42bb-9f02-04fbd810b0dc}</Project>
+      <Name>MortgageHelperData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MortgageHelperModels\MortgageHelperModels.csproj">
+      <Project>{9cbf58db-8373-410e-a259-9bc8b5074e02}</Project>
+      <Name>MortgageHelperModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202012011428485_firstmigration.Designer.cs">
       <DependentUpon>202012011428485_firstmigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012011715017_addeduserguid.cs" />
+    <Compile Include="Migrations\202012011715017_addeduserguid.Designer.cs">
+      <DependentUpon>202012011715017_addeduserguid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mortgage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012011428485_firstmigration.resx">
       <DependentUpon>202012011428485_firstmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012011715017_addeduserguid.resx">
+      <DependentUpon>202012011715017_addeduserguid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
