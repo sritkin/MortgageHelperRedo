@@ -246,6 +246,8 @@
     <Content Include="Views\Feature\Create.cshtml" />
     <Content Include="Views\Mortgage\Create.cshtml" />
     <Content Include="Views\Rating\Create.cshtml" />
+    <Content Include="Views\Home\AddProperty.cshtml" />
+    <Content Include="Views\Home\CompareProperties.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

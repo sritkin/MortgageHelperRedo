@@ -1,4 +1,5 @@
 ﻿using MortgageHelperModels;
+using MortgageHelperModels.MortgageModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,17 @@ namespace MortgageHelper2WebMVC.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MortgageCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
         }
     }
 }
