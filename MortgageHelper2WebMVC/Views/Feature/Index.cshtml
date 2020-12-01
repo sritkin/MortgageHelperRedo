@@ -1,0 +1,105 @@
+﻿@model IEnumerable<MortgageHelperModels.FeatureListItem>
+
+@{
+    ViewBag.Title = "Feature Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FeatureID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistanceFromPopulace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoadAccess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityWater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityElectric)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CitySewer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Internet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlternateWater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlternateElectric)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlternateSewage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BodyOfWater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NearbyBodyOfWater)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeatureID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistanceFromPopulace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoadAccess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityWater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityElectric)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CitySewer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Internet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlternateWater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlternateElectric)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlternateSewage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BodyOfWater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NearbyBodyOfWater)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
