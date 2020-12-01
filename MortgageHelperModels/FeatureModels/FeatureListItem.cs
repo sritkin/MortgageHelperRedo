@@ -9,7 +9,7 @@ namespace MortgageHelperModels
     public class FeatureListItem
     {
         public int FeatureID { get; set; }
-        public int PropertyID { get; set; }
+        public int? PropertyID { get; set; }
         public decimal DistanceFromPopulace { get; set; }
         public bool RoadAccess { get; set; }
         public bool CityWater { get; set; }

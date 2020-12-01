@@ -248,6 +248,8 @@
     <Content Include="Views\Rating\Create.cshtml" />
     <Content Include="Views\Home\AddProperty.cshtml" />
     <Content Include="Views\Home\CompareProperties.cshtml" />
+    <Content Include="Views\Property\Details.cshtml" />
+    <Content Include="Views\Property\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

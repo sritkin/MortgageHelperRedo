@@ -11,10 +11,18 @@ namespace MortgageHelperServices
 {
     public class FeatureService
     {
+        private readonly Guid _userId;
+
+        public FeatureService(Guid userId)
+        {
+            _userId = userId;
+        }
+
         public bool CreateFeature(FeatureCreate model)
         {
             var entity = new Feature()
             {
+                UserID = _userId,
                 PropertyID = model.PropertyID,
                 DistanceFromPopulace = model.DistanceFromPopulace,
                 RoadAccess = model.RoadAccess,
@@ -40,7 +48,7 @@ namespace MortgageHelperServices
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Features.Select(e => new FeatureListItem
+                var query = ctx.Features.Where(e=> e.UserID ==_userId).Select(e => new FeatureListItem
                 {
                     FeatureID = e.FeatureID,
                     PropertyID = e.PropertyID,

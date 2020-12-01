@@ -13,7 +13,7 @@ namespace MortgageHelperData.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202012011427182_InitialCreate"; }
+            get { return "202012011920520_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

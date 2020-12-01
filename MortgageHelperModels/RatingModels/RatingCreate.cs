@@ -9,8 +9,8 @@ namespace MortgageHelperModels.RatingModels
 {
     public class RatingCreate
     {
-        [Required]
-        public int PropertyID { get; set; }
+     
+        public int? PropertyID { get; set; }
         public int? FeatureID { get; set; }
         public decimal RatingTally { get; set; }
         public decimal RatingActual { get; set; }

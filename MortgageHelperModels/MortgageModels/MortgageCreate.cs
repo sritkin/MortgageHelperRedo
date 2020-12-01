@@ -9,8 +9,8 @@ namespace MortgageHelperModels.MortgageModels
 {
    public class MortgageCreate
     {
-        [Required]
-        public int PropertyID { get; set; }
+      
+        public int? PropertyID { get; set; }
         public decimal Zero { get; set; }
         public decimal Five { get; set; }
         public decimal Ten { get; set; }

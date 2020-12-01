@@ -11,10 +11,18 @@ namespace MortgageHelperServices
 {
     public class RatingService
     {
+        private readonly Guid _userId;
+
+        public RatingService(Guid userId)
+        {
+            _userId = userId;
+        }
+
         public bool CreateRating(RatingCreate model)
         {
             var entity = new Rating()
             {
+                UserID = _userId,
                 PropertyID = model.PropertyID,
                 FeatureID = model.FeatureID,
                 RatingTally = model.RatingTally,
@@ -32,7 +40,7 @@ namespace MortgageHelperServices
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Ratings.Select(e => new RatingListItem
+                var query = ctx.Ratings.Where(e => e.UserID == _userId).Select(e => new RatingListItem
                 {
                     RatingID = e.RatingID,
                     PropertyID = e.PropertyID,

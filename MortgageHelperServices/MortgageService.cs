@@ -11,10 +11,18 @@ namespace MortgageHelperServices
 {
     public class MortgageService
     {
+        private readonly Guid _userId;
+
+        public MortgageService(Guid userId)
+        {
+            _userId = userId;
+        }
+
         public bool CreateMortgage(MortgageCreate model)
         {
             var entity = new Mortgage()
             {
+                UserID = _userId,
                 PropertyID = model.PropertyID,
                 Zero = model.Zero,
                 Five = model.Five,
@@ -49,7 +57,7 @@ namespace MortgageHelperServices
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Mortgages.Select(e => new MortgageListItem
+                var query = ctx.Mortgages.Where(e => e.UserID == _userId).Select(e => new MortgageListItem
                 {
                     MortgageID = e.MortgageID,
                     PropertyID = e.PropertyID,

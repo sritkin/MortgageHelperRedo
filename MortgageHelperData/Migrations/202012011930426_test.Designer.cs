@@ -7,13 +7,13 @@ namespace MortgageHelperData.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class firstmigration : IMigrationMetadata
+    public sealed partial class test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(firstmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012011428485_firstmigration"; }
+            get { return "202012011930426_test"; }
         }
         
         string IMigrationMetadata.Source

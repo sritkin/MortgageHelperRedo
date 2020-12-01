@@ -9,7 +9,7 @@ namespace MortgageHelperModels
     public class MortgageListItem
     {
         public int MortgageID { get; set; }
-        public int PropertyID { get; set; }
+        public int? PropertyID { get; set; }
         public decimal Zero { get; set; }
         public decimal Five { get; set; }
         public decimal Ten { get; set; }

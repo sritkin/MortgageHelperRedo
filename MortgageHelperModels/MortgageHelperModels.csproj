@@ -60,6 +60,8 @@
     <Compile Include="MortgageModels\MortgageListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyModels\PropertyCreate.cs" />
+    <Compile Include="PropertyModels\PropertyDetail.cs" />
+    <Compile Include="PropertyModels\PropertyEdit.cs" />
     <Compile Include="PropertyModels\PropertyListItem.cs" />
     <Compile Include="RatingModels\RatingCreate.cs" />
     <Compile Include="RatingModels\RatingListItem.cs" />

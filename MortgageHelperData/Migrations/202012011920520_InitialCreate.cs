@@ -12,7 +12,7 @@ namespace MortgageHelperData.Migrations
                 c => new
                     {
                         FeatureID = c.Int(nullable: false, identity: true),
-                        PropertyID = c.Int(nullable: false),
+                        PropertyID = c.Int(),
                         DistanceFromPopulace = c.Decimal(nullable: false, precision: 18, scale: 2),
                         RoadAccess = c.Boolean(nullable: false),
                         CityWater = c.Boolean(nullable: false),
@@ -26,7 +26,7 @@ namespace MortgageHelperData.Migrations
                         NearbyBodyOfWater = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.FeatureID)
-                .ForeignKey("dbo.Property", t => t.PropertyID, cascadeDelete: true)
+                .ForeignKey("dbo.Property", t => t.PropertyID)
                 .Index(t => t.PropertyID);
             
             CreateTable(
@@ -34,6 +34,7 @@ namespace MortgageHelperData.Migrations
                 c => new
                     {
                         PropertyID = c.Int(nullable: false, identity: true),
+                        UserID = c.Guid(nullable: false),
                         Name = c.String(nullable: false),
                         Address = c.String(nullable: false),
                         Size = c.Double(nullable: false),
@@ -49,7 +50,7 @@ namespace MortgageHelperData.Migrations
                 c => new
                     {
                         MortgageID = c.Int(nullable: false, identity: true),
-                        PropertyID = c.Int(nullable: false),
+                        PropertyID = c.Int(),
                         Zero = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Five = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Ten = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -72,7 +73,7 @@ namespace MortgageHelperData.Migrations
                         NinetyFive = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.MortgageID)
-                .ForeignKey("dbo.Property", t => t.PropertyID, cascadeDelete: true)
+                .ForeignKey("dbo.Property", t => t.PropertyID)
                 .Index(t => t.PropertyID);
             
             CreateTable(
@@ -80,16 +81,15 @@ namespace MortgageHelperData.Migrations
                 c => new
                     {
                         RatingID = c.Int(nullable: false, identity: true),
-                        PropertyID = c.Int(nullable: false),
+                        PropertyID = c.Int(),
                         FeatureID = c.Int(),
                         RatingTally = c.Decimal(nullable: false, precision: 18, scale: 2),
                         RatingActual = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.RatingID)
-                .ForeignKey("dbo.Feature", t => t.FeatureID)
-                .ForeignKey("dbo.Property", t => t.PropertyID, cascadeDelete: true)
-                .Index(t => t.PropertyID)
-                .Index(t => t.FeatureID);
+                .ForeignKey("dbo.Feature", t => t.PropertyID)
+                .ForeignKey("dbo.Property", t => t.PropertyID)
+                .Index(t => t.PropertyID);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -170,14 +170,13 @@ namespace MortgageHelperData.Migrations
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.Rating", "PropertyID", "dbo.Property");
-            DropForeignKey("dbo.Rating", "FeatureID", "dbo.Feature");
+            DropForeignKey("dbo.Rating", "PropertyID", "dbo.Feature");
             DropForeignKey("dbo.Mortgage", "PropertyID", "dbo.Property");
             DropForeignKey("dbo.Feature", "PropertyID", "dbo.Property");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.Rating", new[] { "FeatureID" });
             DropIndex("dbo.Rating", new[] { "PropertyID" });
             DropIndex("dbo.Mortgage", new[] { "PropertyID" });
             DropIndex("dbo.Feature", new[] { "PropertyID" });

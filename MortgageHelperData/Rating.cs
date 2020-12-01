@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,12 @@ namespace MortgageHelperData
         [Key]
         public int RatingID { get; set; }
         [Required]
-        public int PropertyID { get; set; }
+        public Guid UserID { get; set; }
+        public int? PropertyID { get; set; }
+        [ForeignKey(nameof(PropertyID))]
         public virtual Property Property { get; set; }
         public int? FeatureID { get; set; }
+        [ForeignKey(nameof(PropertyID))]
         public virtual Feature Feature { get; set; }
         public decimal RatingTally { get; set; }
         public decimal RatingActual { get; set; }
