@@ -95,6 +95,27 @@ namespace MortgageHelper2WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var svc = CreatePropertyService();
+            var model = svc.GetPropertyByID(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteProperty(int id)
+        {
+            var service = CreatePropertyService();
+
+            service.DeleteProperty(id);
+
+            TempData["SaveResult"] = "Your property was deleted";
+
+            return RedirectToAction("Index");
+        }
 
         private PropertyService CreatePropertyService()
         {

@@ -14,7 +14,7 @@ namespace MortgageHelperModels.PropertyModels
         public double Size { get; set; }
         public decimal Price { get; set; }
         public string Seller { get; set; }
-        public DateTime TimeOnMarket { get; set; }
+        public DateTimeOffset? TimeOnMarket { get; set; }
         public string PropertyType { get; set; }
     }
 }

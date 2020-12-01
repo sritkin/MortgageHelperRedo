@@ -93,5 +93,17 @@ namespace MortgageHelperServices
             }
         }
 
+        public bool DeleteProperty(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Properties.Single(e => e.PropertyID == id && e.UserID == _userId);
+
+                ctx.Properties.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

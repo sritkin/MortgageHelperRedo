@@ -68,6 +68,10 @@
     <Compile Include="Migrations\202012011945049_massproducechange.Designer.cs">
       <DependentUpon>202012011945049_massproducechange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012012243294_datetimenulled.cs" />
+    <Compile Include="Migrations\202012012243294_datetimenulled.Designer.cs">
+      <DependentUpon>202012012243294_datetimenulled.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mortgage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012011945049_massproducechange.resx">
       <DependentUpon>202012011945049_massproducechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012012243294_datetimenulled.resx">
+      <DependentUpon>202012012243294_datetimenulled.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

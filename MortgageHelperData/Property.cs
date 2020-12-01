@@ -25,7 +25,7 @@ namespace MortgageHelperData
         [Required]
         public string Seller { get; set; }
         [Required]
-        public DateTime TimeOnMarket { get; set; }
+        public DateTimeOffset? TimeOnMarket { get; set; }
         [Required]
         public string PropertyType { get; set; }
     }
