@@ -10,7 +10,9 @@ namespace MortgageHelperModels
     {
         public int MortgageID { get; set; }
         public int? PropertyID { get; set; }
-        public decimal Zero { get; set; }
+        public decimal TotalLoanAmount { get; set; }
+        public decimal MonthlyPayment { get; set; }
+        /*public decimal Zero { get; set; }
         public decimal Five { get; set; }
         public decimal Ten { get; set; }
         public decimal Fifteen { get; set; }
@@ -29,6 +31,6 @@ namespace MortgageHelperModels
         public decimal Eighty { get; set; }
         public decimal EightyFive { get; set; }
         public decimal Ninety { get; set; }
-        public decimal NinetyFive { get; set; }
+        public decimal NinetyFive { get; set; }*/
     }
 }

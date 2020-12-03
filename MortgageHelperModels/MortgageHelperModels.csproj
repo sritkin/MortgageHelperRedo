@@ -55,8 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeatureModels\FeatureCreate.cs" />
+    <Compile Include="FeatureModels\FeatureEdit.cs" />
     <Compile Include="FeatureModels\FeatureListItem.cs" />
     <Compile Include="MortgageModels\MortgageCreate.cs" />
+    <Compile Include="MortgageModels\MortgageDetail.cs" />
     <Compile Include="MortgageModels\MortgageListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyModels\PropertyCreate.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="PropertyModels\PropertyEdit.cs" />
     <Compile Include="PropertyModels\PropertyListItem.cs" />
     <Compile Include="RatingModels\RatingCreate.cs" />
+    <Compile Include="RatingModels\RatingEdit.cs" />
     <Compile Include="RatingModels\RatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>

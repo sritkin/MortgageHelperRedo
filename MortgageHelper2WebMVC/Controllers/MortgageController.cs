@@ -37,15 +37,27 @@ namespace MortgageHelper2WebMVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new MortgageService(userId);
+            var service = CreateMortgageService();
 
             if (service.CreateMortgage(model))
             {
                 return RedirectToAction("Index");
             };
 
-            return RedirectToAction("Index");
+            return View(model);
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateMortgageService();
+            var model = svc.GetMortgageByPropertyID(id);
+
+            return View(model);
+        }
+        private MortgageService CreateMortgageService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MortgageService(userId);
+            return service;
         }
     }
 }

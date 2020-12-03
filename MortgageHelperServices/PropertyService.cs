@@ -47,9 +47,10 @@ namespace MortgageHelperServices
                 var query = ctx.Properties.Where(e => e.UserID == _userId).Select(e => new PropertyListItem
                 {
                     PropertyID = e.PropertyID,
-                    Name = e.Name,
+                    Address = e.Address,
                     Price = e.Price,
-                    PropertyType = e.PropertyType
+                    PropertyType = e.PropertyType,
+                    Size = e.Size
                 });
                 return query.ToArray();
             }

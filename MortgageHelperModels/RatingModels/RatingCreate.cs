@@ -14,5 +14,6 @@ namespace MortgageHelperModels.RatingModels
         public int? FeatureID { get; set; }
         public decimal RatingTally { get; set; }
         public decimal RatingActual { get; set; }
+        
     }
 }

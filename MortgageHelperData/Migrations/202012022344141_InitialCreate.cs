@@ -12,7 +12,8 @@ namespace MortgageHelperData.Migrations
                 c => new
                     {
                         FeatureID = c.Int(nullable: false, identity: true),
-                        PropertyID = c.Int(),
+                        UserID = c.Guid(nullable: false),
+                        PropertyID = c.Int(nullable: false),
                         DistanceFromPopulace = c.Decimal(nullable: false, precision: 18, scale: 2),
                         RoadAccess = c.Boolean(nullable: false),
                         CityWater = c.Boolean(nullable: false),
@@ -26,7 +27,7 @@ namespace MortgageHelperData.Migrations
                         NearbyBodyOfWater = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.FeatureID)
-                .ForeignKey("dbo.Property", t => t.PropertyID)
+                .ForeignKey("dbo.Property", t => t.PropertyID, cascadeDelete: true)
                 .Index(t => t.PropertyID);
             
             CreateTable(
@@ -40,7 +41,7 @@ namespace MortgageHelperData.Migrations
                         Size = c.Double(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Seller = c.String(nullable: false),
-                        TimeOnMarket = c.DateTime(nullable: false),
+                        TimeOnMarket = c.DateTimeOffset(nullable: false, precision: 7),
                         PropertyType = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.PropertyID);
@@ -50,6 +51,7 @@ namespace MortgageHelperData.Migrations
                 c => new
                     {
                         MortgageID = c.Int(nullable: false, identity: true),
+                        UserID = c.Guid(nullable: false),
                         PropertyID = c.Int(),
                         Zero = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Five = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -81,8 +83,9 @@ namespace MortgageHelperData.Migrations
                 c => new
                     {
                         RatingID = c.Int(nullable: false, identity: true),
+                        UserID = c.Guid(nullable: false),
                         PropertyID = c.Int(),
-                        FeatureID = c.Int(),
+                        FeatureID = c.Int(nullable: false),
                         RatingTally = c.Decimal(nullable: false, precision: 18, scale: 2),
                         RatingActual = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })

@@ -40,7 +40,7 @@ namespace MortgageHelper2WebMVC.Controllers
 
             if (service.CreateProperty(model))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Feature");
             };
 
             return View(model);

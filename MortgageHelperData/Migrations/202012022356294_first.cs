@@ -3,16 +3,16 @@ namespace MortgageHelperData.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class test : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.Feature", "UserID", c => c.Guid(nullable: false));
+            AlterColumn("dbo.Rating", "FeatureID", c => c.Int());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Feature", "UserID");
+            AlterColumn("dbo.Rating", "FeatureID", c => c.Int(nullable: false));
         }
     }
 }

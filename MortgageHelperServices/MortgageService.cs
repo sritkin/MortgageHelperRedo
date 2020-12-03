@@ -24,7 +24,12 @@ namespace MortgageHelperServices
             {
                 UserID = _userId,
                 PropertyID = model.PropertyID,
-                Zero = model.Zero,
+                Interest = model.Interest,
+                Period= model.Period,
+                Payment= model.Payment,
+                TotalLoanAmount = model.TotalLoanAmount,
+                MonthlyPayment = model.MonthlyPayment,
+                /*Zero = model.Zero,
                 Five = model.Five,
                 Ten = model.Ten,
                 Fifteen = model.Fifteen,
@@ -43,7 +48,7 @@ namespace MortgageHelperServices
                 Eighty = model.Eighty,
                 EightyFive = model.EightyFive,
                 Ninety = model.Ninety,
-                NinetyFive = model.NinetyFive
+                NinetyFive = model.NinetyFive*/
 
             };
 
@@ -61,29 +66,55 @@ namespace MortgageHelperServices
                 {
                     MortgageID = e.MortgageID,
                     PropertyID = e.PropertyID,
-                    Zero = e.Zero,
-                    Five = e.Five,
-                    Ten = e.Ten,
-                    Fifteen = e.Fifteen,
-                    Twenty = e.Twenty,
-                    TwentyFive = e.TwentyFive,
-                    Thirty = e.Thirty,
-                    ThirtyFive = e.ThirtyFive,
-                    Forty = e.Forty,
-                    FortyFive = e.FortyFive,
-                    Fifty = e.Fifty,
-                    FiftyFive = e.FiftyFive,
-                    Sixty = e.Sixty,
-                    SixtyFive = e.SixtyFive,
-                    Seventy = e.Seventy,
-                    SeventyFive = e.SeventyFive,
-                    Eighty = e.Eighty,
-                    EightyFive = e.EightyFive,
-                    Ninety = e.Ninety,
-                    NinetyFive = e.NinetyFive
+                    TotalLoanAmount = e.TotalLoanAmount,
+                    MonthlyPayment = e.MonthlyPayment
                 });
                 return query.ToArray();
             }
         }
+        public MortgageDetail GetMortgageByPropertyID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Mortgages.Single(e => e.PropertyID == id && e.UserID == _userId);
+                return
+                    new MortgageDetail
+                    {
+                        PropertyID = entity.PropertyID,
+                        Interest = entity.Interest,
+                        Period = entity.Period,
+                        Payment = entity.Payment,
+                        TotalLoanAmount = entity.TotalLoanAmount,
+                        MonthlyPayment = entity.MonthlyPayment
+                    };
+            }
+        }
+        public bool DeleteAllMortgagesGivenPropertyID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Mortgages.Where(e => e.PropertyID == id && e.UserID == _userId).ToList();
+
+                foreach (MortgageHelperData.Mortgage item in entity )
+                {
+                    ctx.Mortgages.Remove(item);
+
+                }
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteSingleMortgageGivenMortgageID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Mortgages.Single(e => e.MortgageID == id && e.UserID == _userId);
+
+                ctx.Mortgages.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

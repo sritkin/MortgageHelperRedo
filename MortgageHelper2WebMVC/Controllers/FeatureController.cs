@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using MortgageHelperData;
 using MortgageHelperModels;
 using MortgageHelperModels.FeatureModels;
 using MortgageHelperServices;
@@ -16,8 +17,7 @@ namespace MortgageHelper2WebMVC.Controllers
         // GET: Feature
         public ActionResult Index()
         {
-            Guid userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new FeatureService(userId);
+            var service = CreateFeatureService();
             var model = service.GetFeatures();
 
             return View(model);
@@ -32,20 +32,29 @@ namespace MortgageHelper2WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FeatureCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            
+                
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
 
+                var service = CreateFeatureService();
+
+
+                if (service.CreateFeature(model))
+                {
+                    return RedirectToAction("Create", "Rating");
+                };
+
+                return View(model);
+            
+        }
+        private FeatureService CreateFeatureService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new FeatureService(userId);
-
-            if (service.CreateFeature(model))
-            {
-                return RedirectToAction("Index");
-            };
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

@@ -16,8 +16,7 @@ namespace MortgageHelper2WebMVC.Controllers
         // GET: Rating
         public ActionResult Index()
         {
-            Guid userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RatingService(userId);
+            var service = CreateRatingService();
             var model = service.GetRatings();
 
             return View(model);
@@ -37,15 +36,20 @@ namespace MortgageHelper2WebMVC.Controllers
                 return View(model);
             }
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new RatingService(userId);
+            var service = CreateRatingService();
 
             if (service.CreateRating(model))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Property");
             };
 
-            return RedirectToAction("Index");
+            return View(model);
+        }
+        private RatingService CreateRatingService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new RatingService(userId);
+            return service;
         }
     }
 }

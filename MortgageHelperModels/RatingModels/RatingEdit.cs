@@ -1,23 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MortgageHelperData
+namespace MortgageHelperModels.RatingModels
 {
-    public class Feature
+    public class RatingEdit
     {
-        [Key]
-        public int FeatureID { get; set; }
-        [Required]
-        public Guid UserID { get; set; }
-        public int PropertyID { get; set; }
-        [ForeignKey(nameof(PropertyID))]
-        public virtual Property Property { get; set; }
+        public int RatingID { get; set; }
+        public int? PropertyID { get; set; }
+        public int? FeatureID { get; set; }
+        /*public decimal RatingTally { get; set; }
+        public decimal RatingActual { get; set; }*/
+        
         public decimal DistanceFromPopulace { get; set; }
         public bool RoadAccess { get; set; }
         public bool CityWater { get; set; }
@@ -29,7 +25,5 @@ namespace MortgageHelperData
         public bool AlternateSewage { get; set; }
         public bool BodyOfWater { get; set; }
         public bool NearbyBodyOfWater { get; set; }
-
     }
-
 }

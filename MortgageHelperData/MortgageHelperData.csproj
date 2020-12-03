@@ -56,21 +56,17 @@
   <ItemGroup>
     <Compile Include="Feature.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202012011920520_InitialCreate.cs" />
-    <Compile Include="Migrations\202012011920520_InitialCreate.Designer.cs">
-      <DependentUpon>202012011920520_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202012022344141_InitialCreate.cs" />
+    <Compile Include="Migrations\202012022344141_InitialCreate.Designer.cs">
+      <DependentUpon>202012022344141_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012011930426_test.cs" />
-    <Compile Include="Migrations\202012011930426_test.Designer.cs">
-      <DependentUpon>202012011930426_test.cs</DependentUpon>
+    <Compile Include="Migrations\202012022356294_first.cs" />
+    <Compile Include="Migrations\202012022356294_first.Designer.cs">
+      <DependentUpon>202012022356294_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012011945049_massproducechange.cs" />
-    <Compile Include="Migrations\202012011945049_massproducechange.Designer.cs">
-      <DependentUpon>202012011945049_massproducechange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012012243294_datetimenulled.cs" />
-    <Compile Include="Migrations\202012012243294_datetimenulled.Designer.cs">
-      <DependentUpon>202012012243294_datetimenulled.cs</DependentUpon>
+    <Compile Include="Migrations\202012030205546_now.cs" />
+    <Compile Include="Migrations\202012030205546_now.Designer.cs">
+      <DependentUpon>202012030205546_now.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mortgage.cs" />
@@ -83,17 +79,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012011920520_InitialCreate.resx">
-      <DependentUpon>202012011920520_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012022344141_InitialCreate.resx">
+      <DependentUpon>202012022344141_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012011930426_test.resx">
-      <DependentUpon>202012011930426_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012022356294_first.resx">
+      <DependentUpon>202012022356294_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012011945049_massproducechange.resx">
-      <DependentUpon>202012011945049_massproducechange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012012243294_datetimenulled.resx">
-      <DependentUpon>202012012243294_datetimenulled.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012030205546_now.resx">
+      <DependentUpon>202012030205546_now.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

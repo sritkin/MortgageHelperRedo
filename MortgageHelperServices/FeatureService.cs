@@ -20,10 +20,11 @@ namespace MortgageHelperServices
 
         public bool CreateFeature(FeatureCreate model)
         {
+            
             var entity = new Feature()
             {
                 UserID = _userId,
-                PropertyID = model.PropertyID,
+                PropertyID = new ApplicationDbContext().Properties.Max(id=> id.PropertyID),
                 DistanceFromPopulace = model.DistanceFromPopulace,
                 RoadAccess = model.RoadAccess,
                 CityWater = model.CityWater,
@@ -42,6 +43,7 @@ namespace MortgageHelperServices
             {
                 ctx.Features.Add(entity);
                 return ctx.SaveChanges() == 1;
+
             }
         }
         public IEnumerable<FeatureListItem> GetFeatures()
@@ -66,5 +68,78 @@ namespace MortgageHelperServices
                 return query.ToArray();
             }
         }
+
+        public FeatureListItem GetFeaturesByFeatureID (int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Features.Single(e => e.FeatureID == id);
+                return new FeatureListItem
+                {
+                    FeatureID = entity.FeatureID,
+                    PropertyID = entity.PropertyID,
+                    DistanceFromPopulace = entity.DistanceFromPopulace,
+                    RoadAccess = entity.RoadAccess,
+                    CityWater = entity.CityWater,
+                    CityElectric = entity.CityElectric,
+                    CitySewer = entity.CitySewer,
+                    Internet = entity.CitySewer,
+                    AlternateWater = entity.AlternateWater,
+                    AlternateElectric = entity.AlternateElectric,
+                    AlternateSewage = entity.AlternateSewage,
+                    BodyOfWater = entity.BodyOfWater,
+                    NearbyBodyOfWater = entity.NearbyBodyOfWater
+                };
+            }
+        } 
+        public bool UpdateFeature(FeatureEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Features.Single(e => e.FeatureID == model.FeatureID && e.UserID == _userId);
+
+                entity.DistanceFromPopulace = model.DistanceFromPopulace;
+                entity.RoadAccess = model.RoadAccess;
+                entity.CityWater = model.CityWater;
+                entity.CityElectric = model.CityElectric;
+                entity.CitySewer = model.CitySewer;
+                entity.Internet = model.Internet;
+                entity.AlternateWater = model.AlternateWater;
+                entity.AlternateElectric = model.AlternateElectric;
+                entity.AlternateSewage = model.AlternateSewage;
+                entity.BodyOfWater = model.BodyOfWater;
+                entity.NearbyBodyOfWater = model.NearbyBodyOfWater;
+                
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteAllFeaturesGivenPropertyID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Features.Where(e => e.PropertyID == id && e.UserID == _userId).ToList();
+
+                foreach (MortgageHelperData.Feature item in entity)
+                {
+                    ctx.Features.Remove(item);
+
+                }
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteFeatureGivenFeatureID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Features.Single(e => e.FeatureID == id && e.UserID == _userId);
+
+                ctx.Features.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }
