@@ -15,8 +15,6 @@ namespace MortgageHelperData
         [Required]
         public Guid UserID { get; set; }
         [Required]
-        public string Name { get; set; }
-        [Required]
         public string Address { get; set; }
         [Required]
         public double Size { get; set; }

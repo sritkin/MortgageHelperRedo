@@ -9,7 +9,6 @@ namespace MortgageHelperModels.PropertyModels
     public class PropertyDetail
     {
         public int PropertyID { get; set; }
-        public string Name { get; set; }
         public string Address { get; set; }
         public double Size { get; set; }
         public decimal Price { get; set; }

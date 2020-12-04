@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeatureModels\AllDetailsListItem.cs" />
     <Compile Include="FeatureModels\FeatureCreate.cs" />
     <Compile Include="FeatureModels\FeatureEdit.cs" />
     <Compile Include="FeatureModels\FeatureListItem.cs" />
@@ -66,7 +67,6 @@
     <Compile Include="PropertyModels\PropertyEdit.cs" />
     <Compile Include="PropertyModels\PropertyListItem.cs" />
     <Compile Include="RatingModels\RatingCreate.cs" />
-    <Compile Include="RatingModels\RatingEdit.cs" />
     <Compile Include="RatingModels\RatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>

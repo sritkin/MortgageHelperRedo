@@ -69,11 +69,11 @@ namespace MortgageHelperServices
             }
         }
 
-        public FeatureListItem GetFeaturesByFeatureID (int id)
+        public FeatureListItem GetFeaturesByPropertyID (int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Features.Single(e => e.FeatureID == id);
+                var entity = ctx.Features.FirstOrDefault(e => e.PropertyID == id);
                 return new FeatureListItem
                 {
                     FeatureID = entity.FeatureID,
@@ -91,13 +91,44 @@ namespace MortgageHelperServices
                     NearbyBodyOfWater = entity.NearbyBodyOfWater
                 };
             }
-        } 
+        }
+        public AllDetailsListItem GetAllDetailsByPropertyID(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Features.FirstOrDefault(e => e.PropertyID == id);
+                return new AllDetailsListItem
+                {
+                    FeatureID = entity.FeatureID,
+                    PropertyID = entity.PropertyID,
+                    Address = entity.Property.Address,
+                    Size = entity.Property.Size,
+                    Price = entity.Property.Price,
+                    Seller = entity.Property.Seller,
+                    TimeOnMarket = entity.Property.TimeOnMarket,
+                    PropertyType = entity.Property.PropertyType,
+                    DistanceFromPopulace = entity.DistanceFromPopulace,
+                    RoadAccess = entity.RoadAccess,
+                    CityWater = entity.CityWater,
+                    CityElectric = entity.CityElectric,
+                    CitySewer = entity.CitySewer,
+                    Internet = entity.CitySewer,
+                    AlternateWater = entity.AlternateWater,
+                    AlternateElectric = entity.AlternateElectric,
+                    AlternateSewage = entity.AlternateSewage,
+                    BodyOfWater = entity.BodyOfWater,
+                    NearbyBodyOfWater = entity.NearbyBodyOfWater
+                };
+            }
+        }
         public bool UpdateFeature(FeatureEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Features.Single(e => e.FeatureID == model.FeatureID && e.UserID == _userId);
+                var entity = ctx.Features.Single(e => e.PropertyID == model.PropertyID && e.UserID == _userId);
 
+                entity.PropertyID = model.PropertyID;
+                entity.FeatureID = model.FeatureID;
                 entity.DistanceFromPopulace = model.DistanceFromPopulace;
                 entity.RoadAccess = model.RoadAccess;
                 entity.CityWater = model.CityWater;

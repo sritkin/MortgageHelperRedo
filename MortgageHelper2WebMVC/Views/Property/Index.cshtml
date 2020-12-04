@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<br />
 <h2>Current Properties</h2>
 
 <p>
@@ -44,10 +44,10 @@
     </td>
     <td>
         @Html.ActionLink("See More", "Details", new { id = item.PropertyID }) |
-        @Html.ActionLink("Calculate Mortgage Rates", "MortgageCalculator", "Mortgage", new { id = item.PropertyID }) |
+        @Html.ActionLink("Calculate Mortgage Rates", "MortgageCalculator", "Mortgage", new { id = item.PropertyID }, null) |
         @Html.ActionLink("Edit Property", "Edit", new { id = item.PropertyID }) |
-        <!-- NEED an edit features -->
-        @Html.ActionLink("Remove Property", "Delete", new { id = item.PropertyID })
+        @Html.ActionLink("Edit Features", "Edit", "Feature", new { id = item.PropertyID }, null) |
+        @Html.ActionLink("Remove Property", "Delete", new { id = item.PropertyID }, null) |
     </td>
 </tr>
 }

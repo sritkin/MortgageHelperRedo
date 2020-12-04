@@ -19,9 +19,8 @@ namespace MortgageHelperData
         [ForeignKey(nameof(PropertyID))]
         public virtual Property Property { get; set; }
         public int? FeatureID { get; set; }
-        [ForeignKey(nameof(PropertyID))]
+        [ForeignKey(nameof(FeatureID))]
         public virtual Feature Feature { get; set; }
-        public decimal RatingTally { get; set; }
         public decimal RatingActual { get; set; }
     }
 

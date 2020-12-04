@@ -48,8 +48,8 @@ namespace MortgageHelper2WebMVC.Controllers
 
         public ActionResult Details(int id)
         {
-            var svc = CreatePropertyService();
-            var model = svc.GetPropertyByID(id);
+            var service = CreateFeatureService();
+            var model = service.GetAllDetailsByPropertyID(id);
 
             return View(model);
         }
@@ -61,7 +61,6 @@ namespace MortgageHelper2WebMVC.Controllers
             var model = new PropertyEdit
                 {
                     PropertyID = detail.PropertyID,
-                    Name = detail.Name,
                     Address = detail.Address,
                     Size = detail.Size,
                     Price = detail.Price,
@@ -97,8 +96,8 @@ namespace MortgageHelper2WebMVC.Controllers
 
         public ActionResult Delete(int id)
         {
-            var svc = CreatePropertyService();
-            var model = svc.GetPropertyByID(id);
+            var service = CreatePropertyService();
+            var model = service.GetPropertyByID(id);
 
             return View(model);
         }
@@ -109,9 +108,13 @@ namespace MortgageHelper2WebMVC.Controllers
         public ActionResult DeleteProperty(int id)
         {
             var service = CreatePropertyService();
-
+            var fservice = CreateFeatureService();
+            var rservice = CreateRatingService();
+            rservice.DeleteAllRatingsGivenPropertyID(id);
+            fservice.DeleteAllFeaturesGivenPropertyID(id);
             service.DeleteProperty(id);
-
+            //feature service deletefeature
+            //ratingservice delete rating
             TempData["SaveResult"] = "Your property was deleted";
 
             return RedirectToAction("Index");
@@ -121,6 +124,19 @@ namespace MortgageHelper2WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PropertyService(userId);
+            return service;
+        }
+
+        private FeatureService CreateFeatureService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new FeatureService(userId);
+            return service;
+        }
+        private RatingService CreateRatingService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new RatingService(userId);
             return service;
         }
     }

@@ -3,26 +3,20 @@
 @{
     ViewBag.Title = "Rating Index";
 }
-
+<br />
 <h2>Compare Properties</h2>
-<h3>Sort your current properties to see how they stack up to one another.</h3> 
+<br />
+<p>Here is a list of all of your properties with their auto-generated ratings. These will be removed whenever you remove a property from your list.</p> 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
+<br />
+
 <table class="table">
     <tr>
+
         <th>
-            @Html.DisplayNameFor(model => model.RatingID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PropertyID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FeatureID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RatingTally)
+            @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RatingActual)
@@ -32,26 +26,15 @@
 
 @foreach (var item in Model) {
     <tr>
+
         <td>
-            @Html.DisplayFor(modelItem => item.RatingID)
+            @Html.DisplayFor(modelItem => item.Address)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PropertyID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FeatureID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RatingTally)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.RatingActual)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+
     </tr>
 }
 

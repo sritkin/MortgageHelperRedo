@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MortgageHelperModels.RatingModels
+namespace MortgageHelperModels.FeatureModels
 {
-    public class RatingEdit
+    public class AllDetailsListItem
     {
-        public int RatingID { get; set; }
-        public int? PropertyID { get; set; }
-        public int? FeatureID { get; set; }
-        /*public decimal RatingTally { get; set; }
-        public decimal RatingActual { get; set; }*/
-        
+        public string Address { get; set; }
+        public double Size { get; set; }
+        public decimal Price { get; set; }
+        public string Seller { get; set; }
+        public DateTimeOffset? TimeOnMarket { get; set; }
+        public string PropertyType { get; set; }
+        public int FeatureID { get; set; }
+        public int PropertyID { get; set; }
         public decimal DistanceFromPopulace { get; set; }
         public bool RoadAccess { get; set; }
         public bool CityWater { get; set; }

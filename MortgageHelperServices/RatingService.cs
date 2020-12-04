@@ -1,5 +1,6 @@
 ﻿using MortgageHelperData;
 using MortgageHelperModels;
+using MortgageHelperModels.FeatureModels;
 using MortgageHelperModels.RatingModels;
 using System;
 using System.Collections.Generic;
@@ -20,19 +21,54 @@ namespace MortgageHelperServices
 
         public bool CreateRating(RatingCreate model)
         {
-
-            var entity = new Rating()
-            {
-
-                UserID = _userId,
-                PropertyID = new ApplicationDbContext().Properties.Max(id=> id.PropertyID),
-                FeatureID = new ApplicationDbContext().Features.Max(id=> id.FeatureID),
-                RatingTally = model.RatingTally,
-                RatingActual = model.RatingActual
-            };
-
             using (var ctx = new ApplicationDbContext())
             {
+                var item = ctx.Features.Where(e => e.UserID == _userId && e.FeatureID == model.FeatureID && e.PropertyID == model.PropertyID).Select(e => new AllDetailsListItem
+                {
+                    PropertyID = e.PropertyID,
+                    FeatureID = e.FeatureID,
+                    DistanceFromPopulace = e.DistanceFromPopulace,
+                    RoadAccess = e.RoadAccess,
+                    CityWater = e.CityWater,
+                    CityElectric = e.CityElectric,
+                    CitySewer = e.CitySewer,
+                    Internet = e.Internet,
+                    AlternateWater = e.AlternateWater,
+                    AlternateElectric = e.AlternateElectric,
+                    AlternateSewage = e.AlternateSewage,
+                    BodyOfWater = e.BodyOfWater,
+                    NearbyBodyOfWater = e.NearbyBodyOfWater,
+                    Price = e.Property.Price
+                }).Single();
+
+                decimal placeholder = 0;
+                if (item.DistanceFromPopulace >= 25) { placeholder += 10; }
+                if (item.DistanceFromPopulace < 25) { placeholder -= 4; }
+                if (item.RoadAccess is true) { placeholder += 10; }
+                if (item.CityWater is true) { placeholder += 8; }
+                if (item.CityElectric is true) { placeholder += 8; }
+                if (item.CitySewer is true) { placeholder += 8; }
+                if (item.Internet is true) { placeholder += 8; }
+                if (item.AlternateWater is true) { placeholder += 4; }
+                if (item.AlternateElectric is true) { placeholder += 4; }
+                if (item.AlternateSewage is true) { placeholder += 4; }
+                if (item.BodyOfWater is true) { placeholder += 4; }
+                if (item.NearbyBodyOfWater is true) { placeholder += 2; }
+
+                if (item.Price <= 100000)  { placeholder += 30; }
+                else if (item.Price >100000 && item.Price <=150000) { placeholder += 15; }
+                else if (item.Price > 150000 && item.Price <= 200000) { placeholder += 5; }
+                else if (item.Price >= 2500000) { placeholder -= 30; }
+
+                var entity = new Rating()
+                {
+                    
+                    UserID = _userId,
+                    PropertyID = model.PropertyID,
+                    FeatureID = model.FeatureID,
+                    RatingActual = placeholder/10
+                };
+
                 ctx.Ratings.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -46,41 +82,14 @@ namespace MortgageHelperServices
                     RatingID = e.RatingID,
                     PropertyID = e.PropertyID,
                     FeatureID = e.FeatureID,
-                    RatingTally = e.RatingTally,
-                    RatingActual = e.RatingActual
+                    RatingActual = e.RatingActual,
+                    Address = e.Property.Address
                     
                 });
                 return query.ToArray();
             }
         }
-        public bool UpdateRating(RatingEdit model)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                decimal placeholder = 0;
-                if (model.DistanceFromPopulace >= 25) { placeholder = placeholder + 1; }
-                if (model.RoadAccess is true) { placeholder = placeholder + 1; }
-                if (model.CityWater is true) { placeholder = placeholder + 1; }
-                if (model.CityElectric is true) { placeholder = placeholder + 1; }
-                if (model.CitySewer is true) { placeholder = placeholder + 1; }
-                if (model.Internet is true) { placeholder = placeholder + 1; }
-                if (model.AlternateWater is true) { placeholder = placeholder + 1; }
-                if (model.AlternateElectric is true) { placeholder = placeholder + 1; }
-                if (model.AlternateSewage is true) { placeholder = placeholder + 1; }
-                if (model.BodyOfWater is true) { placeholder = placeholder + 1; }
-                if (model.NearbyBodyOfWater is true) { placeholder = placeholder + 1; }
 
-                var entity = ctx.Ratings.Single(e => e.RatingID == model.RatingID && e.UserID == _userId);
-                entity.RatingID = model.RatingID;
-                entity.PropertyID = model.PropertyID;
-                entity.FeatureID = model.FeatureID;
-                entity.RatingTally = placeholder;
-                entity.RatingActual = placeholder / 11;
-                
-                  
-                return ctx.SaveChanges() == 1;
-            }
-        }
         public bool DeleteAllRatingsGivenPropertyID(int id)
         {
             using (var ctx = new ApplicationDbContext())

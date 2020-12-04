@@ -1,4 +1,4 @@
-﻿@model MortgageHelperModels.PropertyModels.PropertyDetail
+﻿@model MortgageHelperModels.FeatureModels.AllDetailsListItem
 
 @{
     ViewBag.Title = "Details";
@@ -7,24 +7,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>PropertyDetail</h4>
+    <h4>AllDetailsListItem</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PropertyID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PropertyID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Address)
@@ -74,9 +59,112 @@
             @Html.DisplayFor(model => model.PropertyType)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PropertyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PropertyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DistanceFromPopulace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistanceFromPopulace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoadAccess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoadAccess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityWater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityWater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CityElectric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CityElectric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitySewer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitySewer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Internet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Internet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlternateWater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlternateWater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlternateElectric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlternateElectric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlternateSewage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlternateSewage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BodyOfWater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BodyOfWater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NearbyBodyOfWater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NearbyBodyOfWater)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.PropertyID  }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

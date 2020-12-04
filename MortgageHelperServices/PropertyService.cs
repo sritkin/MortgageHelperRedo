@@ -24,7 +24,6 @@ namespace MortgageHelperServices
             var entity = new Property()
             {
                 UserID = _userId,
-                Name = model.Name,
                 Address = model.Address,
                 Size = model.Size,
                 Price = model.Price,
@@ -66,7 +65,6 @@ namespace MortgageHelperServices
                     new PropertyDetail
                     {
                         PropertyID = entity.PropertyID,
-                        Name = entity.Name,
                         Address = entity.Address,
                         Size = entity.Size,
                         Price = entity.Price,
@@ -82,7 +80,6 @@ namespace MortgageHelperServices
             {
                 var entity =ctx.Properties.Single(e => e.PropertyID == model.PropertyID && e.UserID == _userId);
 
-                entity.Name = model.Name;
                 entity.Address = model.Address;
                 entity.Size = model.Size;
                 entity.Price = model.Price;
