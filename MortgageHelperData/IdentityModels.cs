@@ -34,7 +34,7 @@ namespace MortgageHelperData
         public DbSet<Property> Properties { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<Mortgage> Mortgages { get; set; }
-        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<RatingScore> Ratings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

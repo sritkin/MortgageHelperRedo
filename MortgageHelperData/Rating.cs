@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MortgageHelperData
 {
-    public class Rating
+    public class RatingScore
     {
         [Key]
         public int RatingID { get; set; }
@@ -21,7 +21,7 @@ namespace MortgageHelperData
         public int? FeatureID { get; set; }
         [ForeignKey(nameof(FeatureID))]
         public virtual Feature Feature { get; set; }
-        public decimal RatingActual { get; set; }
+        public decimal Rating { get; set; }
     }
 
 }

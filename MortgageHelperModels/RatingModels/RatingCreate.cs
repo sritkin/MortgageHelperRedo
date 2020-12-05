@@ -12,7 +12,7 @@ namespace MortgageHelperModels.RatingModels
      
         public int? PropertyID { get; set; }
         public int? FeatureID { get; set; }
-        public decimal RatingActual { get; set; }
+        public decimal Rating { get; set; }
 
         public decimal Price { get; set; }
         public decimal DistanceFromPopulace { get; set; }

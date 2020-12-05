@@ -60,13 +60,13 @@ namespace MortgageHelperServices
                 else if (item.Price > 150000 && item.Price <= 200000) { placeholder += 5; }
                 else if (item.Price >= 2500000) { placeholder -= 30; }
 
-                var entity = new Rating()
+                var entity = new RatingScore()
                 {
                     
                     UserID = _userId,
                     PropertyID = model.PropertyID,
                     FeatureID = model.FeatureID,
-                    RatingActual = placeholder/10
+                    Rating = placeholder/10
                 };
 
                 ctx.Ratings.Add(entity);
@@ -82,7 +82,7 @@ namespace MortgageHelperServices
                     RatingID = e.RatingID,
                     PropertyID = e.PropertyID,
                     FeatureID = e.FeatureID,
-                    RatingActual = e.RatingActual,
+                    Rating = e.Rating,
                     Address = e.Property.Address
                     
                 });
@@ -96,7 +96,7 @@ namespace MortgageHelperServices
             {
                 var entity = ctx.Ratings.Where(e => e.PropertyID == id && e.UserID == _userId).ToList();
 
-                foreach (MortgageHelperData.Rating item in entity)
+                foreach (MortgageHelperData.RatingScore item in entity)
                 {
                     ctx.Ratings.Remove(item);
 

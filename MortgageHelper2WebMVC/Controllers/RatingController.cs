@@ -22,31 +22,7 @@ namespace MortgageHelper2WebMVC.Controllers
 
             return View(model);
         }
-       /* public ActionResult Create()
-        {
-            return RedirectToAction("Index", "Property");
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(RatingCreate model)
-        {
-            model.PropertyID = new ApplicationDbContext().Properties.Max(id => id.PropertyID);
-            model.FeatureID = new ApplicationDbContext().Features.Max(id => id.FeatureID);
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var service = CreateRatingService();
-
-            if (service.CreateRating(model))
-            {
-                return RedirectToAction("Index", "Property");
-            };
-
-            return View(model);
-        }*/
         private RatingService CreateRatingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
