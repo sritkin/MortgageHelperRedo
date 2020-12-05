@@ -15,15 +15,7 @@ namespace MortgageHelper2WebMVC.Controllers
     [Authorize]
     public class FeatureController : Controller
     {
-        // GET: Feature
-        public ActionResult Index()
-        {
-            var service = CreateFeatureService();
-            var model = service.GetFeatures();
-
-            return View(model);
-        }
-        // GET: Feature
+        
         public ActionResult Create()
         {
             return View();
@@ -44,6 +36,7 @@ namespace MortgageHelper2WebMVC.Controllers
 
                 if (service.CreateFeature(model))
                 {
+                // at the time a feature is created, automatically generates a rating for the property
                 rservice.CreateRating(new RatingCreate { PropertyID = new ApplicationDbContext().Properties.Max(x => x.PropertyID), FeatureID = new ApplicationDbContext().Features.Max(x => x.FeatureID) });
                     return RedirectToAction("Index", "Property" );
                 };

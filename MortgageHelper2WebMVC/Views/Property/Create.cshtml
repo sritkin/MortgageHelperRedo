@@ -12,7 +12,8 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>PropertyCreate</h4>
+        <p>This page lets you start creating a new property. If you would like to create a new property, fill out the information below and click create.</p> 
+        <p>Otherwise, click Back to List at the bottom of the page.</p>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -25,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Size, "Acres", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
@@ -49,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TimeOnMarket, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TimeOnMarket, "List Date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TimeOnMarket, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TimeOnMarket, "", new { @class = "text-danger" })

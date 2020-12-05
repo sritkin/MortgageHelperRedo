@@ -4,15 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>All Property Info</h2>
 
 <div>
-    <h4>AllDetailsListItem</h4>
+    <p>This page contains information you have entered about your property. The top half has information you can change in Edit Property, the bottom half has information you can change in Edit Amenities.</p>
     <hr />
     <dl class="dl-horizontal">
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.LabelFor(model => model.Address)
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Size)
+            @Html.LabelFor(model => model.Size, "Acres")
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.LabelFor(model => model.Price)
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Seller)
+            @Html.LabelFor(model => model.Seller)
         </dt>
 
         <dd>
@@ -44,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TimeOnMarket)
+            @Html.LabelFor(model => model.TimeOnMarket, "List Date")
         </dt>
 
         <dd>
@@ -52,31 +52,21 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PropertyType)
+            @Html.LabelFor(model => model.PropertyType, "Property Type")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.PropertyType)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FeatureID)
-        </dt>
+</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FeatureID)
-        </dd>
+
+<div class="dl-horizontal">
+    <hr />
 
         <dt>
-            @Html.DisplayNameFor(model => model.PropertyID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PropertyID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DistanceFromPopulace)
+            @Html.LabelFor(model => model.DistanceFromPopulace, "Miles from Population")
         </dt>
 
         <dd>
@@ -84,7 +74,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.RoadAccess)
+            @Html.LabelFor(model => model.RoadAccess, "Road Access")
         </dt>
 
         <dd>
@@ -92,7 +82,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CityWater)
+            @Html.LabelFor(model => model.CityWater, "City Water")
         </dt>
 
         <dd>
@@ -100,7 +90,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CityElectric)
+            @Html.LabelFor(model => model.CityElectric, "City Electric")
         </dt>
 
         <dd>
@@ -108,7 +98,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CitySewer)
+            @Html.LabelFor(model => model.CitySewer, "City Sewer")
         </dt>
 
         <dd>
@@ -116,7 +106,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Internet)
+            @Html.LabelFor(model => model.Internet, "Internet")
         </dt>
 
         <dd>
@@ -124,7 +114,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AlternateWater)
+            @Html.LabelFor(model => model.AlternateWater, "Alternate Water")
         </dt>
 
         <dd>
@@ -132,7 +122,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AlternateElectric)
+            @Html.LabelFor(model => model.AlternateElectric, "Alternate Electric")
         </dt>
 
         <dd>
@@ -140,7 +130,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AlternateSewage)
+            @Html.LabelFor(model => model.AlternateSewage, "Alternate Sewage")
         </dt>
 
         <dd>
@@ -148,7 +138,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BodyOfWater)
+            @Html.LabelFor(model => model.BodyOfWater, "Watersource on Property")
         </dt>
 
         <dd>
@@ -156,14 +146,14 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NearbyBodyOfWater)
+            @Html.LabelFor(model => model.NearbyBodyOfWater, "Off-property Watersource")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.NearbyBodyOfWater)
         </dd>
-
-    </dl>
+    <hr />
+    
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")

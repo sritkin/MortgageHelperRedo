@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "IntroGuide";
+}
+
+<h1>IntroGuide</h1>
+<hr />
+
+<h3>Rural Properties</h3>
+<p>As mentioned in the About page, this website was primarily designed for Rural Properties. This section shows the full functionality of the site:</p>
+<p>Step 1: Click Register at the top of the screen and make an account: you must be logged in to add or view properties. You are the only one who can see your properties.</p>
+<br />
+<p>Step 2: After registering you should now see the My Properties and Compare Properties at the top of the screen. My Properties is where you will go to add new properties and view your existing properties. Compare Properties is where you will go to view the auto-generated ratings of properties after you have created some.</p>
+<p>Go ahead and click My Properties, on the page it takes you to, you will only have one option, which is to Add New Property, so choose that.</p>
+<br />
+
+<p>Step 3: Fill out this page with the information for the property you want to add. List Date is looking for the day a property was first put up for sale and is later used to calculate how long it has been on the market. Property type will accept anything you type in for how you want to differentiate between types of properties, whether it's Developed Land, Undeveloped Land, House + Undeveloped Land, $ax.34query. It's there for your convenience. </p>
+<p>If you do not want to add a new property, you can click Back to List at the bottom, which will take you to your My Properties page. However once you click create you will then need to finish the property.</p>
+<br />
+<p>Step 4: Click create and now you will be on the Amenities page.</p>
+<p>The site is designed to increase the rating of properties that are at least 25 miles from population centers and decrease ratings for properties that are closer. This is done as a pollution factor and to keep track of proximity to markets. Their is no upper limit on Mile From Population, because of limited places far enough away to merit it.</p>
+<p>Below that are checkboxes for various features a site could have. If your potential property has the feature, check the box, if not leave it blank.</p>
+<p>Each feature is assigned a point value as is the properties price from the previoius page. That is tallied to a maximum of 100 points and then divided by 10 for an easy to read rating later. One important point is that this rating is currently functioning under my budget, so any properties that cost $250,000 or more automatically lose 3 points out of 10.</p>
+<p>After you have filled out this page, click Create.</p>
+<br />
+
+<p>You have successfully added a property! You have a few options:</p>
+<p>- You can view your ratings at Compare Properties.</p>
+<p>- You can review your property info by clicking See More on the My Properties page.</p>
+<p>- You can edit existing info with either Edit Property or Edit Amenities on the My Properties page.</p>
+<p>- You can delete the property and any associated ameneties and ratings with Remove Property on the My Properties page.</p>
+<p>- You can calculate mortgage costs with Calculate Mortgage Rates page.</p>
+<br />
+<p>If you want information about how the mortgage calculator works, it is on this guide, below Urban Properties.</p>
+
+
+<br />
+<hr />
+
+<h3>Urban Properties</h3>
+<p>This section provides a limited use of the site and tells you what things to ignore if focusing on urban properties. Mortgage Helper was designed in part to rank properties based on amenties that are irrelevent to consider when shopping in an urban area. The Compare Properties page will not be of use to you, but you can still add properties to track and calculate mortgage costs for those properties.</p>
+<p>Step 1: Click Register at the top of the screen and make an account: you must be logged in to add or view properties. You are the only one who can see your properties.</p>
+<br />
+<p>Step 2: After registering you should now see the My Properties and Compare Properties at the top of the screen. My Properties is where you will go to add new properties and view your existing properties. You can ignore Compare Properties.</p>
+<p>Go ahead and click My Properties, on the page it takes you to, you will only have one option, which is to Add New Property, so choose that.</p>
+<br />
+
+<p>Step 3: Fill out this page with the information for the property you want to add. Acres is only looking for a number, you can put your properties sq footage here instead. List Date is looking for the day a property was first put up for sale and is later used to calculate how long it has been on the market. Property type will accept anything you type in for how you want to differentiate between types of properties. It's there for your convenience. </p>
+<p>If you do not want to add a new property, you can click Back to List at the bottom, which will take you to your My Properties page. However once you click create you will then need to finish the property.</p>
+<br />
+<p>Step 4: Click create and now you will be on the Amenities page.</p>
+<p>Since the Amenities and Rating functions don't matter for urban properties, put any number you want in the Miles From Population Box and click Create at the bottom.</p>
+<p>Every property you add will still have a list of amenities and a rating associated with it, but you can ignore them.</p>
+<br />
+<p>You have successfully added a property! You have a few options, all of them are located on the My Properties page:</p>
+<p>- You can review your property info by clicking See More.</p>
+<p>- You can edit existing info with either Edit Property or Edit Amenities.</p>
+<p>- You can delete the property and any associated ameneties and ratings with Remove Property.</p>
+<p>- You can calculate mortgage costs with Calculate Mortgage Rates.</p>
+<br />
+<p>If you want information about how the mortgage calculator works, continue reading.</p>
+
+<h3>Mortgage Calculator</h3>
+<p>The mortgage calculator is fairly straightforward, but the key thing is to make sure your numbers are put in correctly or else you can get something odd</p>
+
+<p>Here is what the boxes are expecting you to put in:</p>
+<p>Down Payment:How much of a down payment are you planning to pay? A $10,000 down payment would be 10000</p>
+<p>Interest Rate: This requires your percentage. A 4.5% interest rate would be 4.5 (if you put in .045 instead, the calculator will still run but you will receive a lower Monthly Payment and Lifetime Cost than you should)</p>
+<p>Load Period(Years): This requires only the number of years. 30 years would be 30 </p>
+
+<p> After you put your numbers in, click calculate and your results will show up on the screen. If you want to try out different combinations all you need to do is change your numbers in the boxes on the top and click Calculate again.</p>
+<p>Your mortgage calculations are not saved to your account. They are removed immediately after being generated. </p>
+
+<hr />
+<div>
+    @Html.ActionLink("Back to Home Page", "Index")
+</div>

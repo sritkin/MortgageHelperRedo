@@ -5,8 +5,8 @@
 }
 <br />
 <h2>Select Which Amenities This Property Has</h2>
-<p>If you are not considering rural properties, you set Distance From Population Centers to 0 and leave the rest unchecked.</p>
-
+<p>If you are not considering rural properties, set Distance From Population Centers to any number and leave the rest unchecked. Then click create.</p>
+<p>This page is meant to help rate amenities of rural properties.</p>
 
 @using (Html.BeginForm()) 
 {
@@ -18,21 +18,16 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-    
-<div class="col-md-10">
-    
- 
-</div>
     <div class="form-group">
-        @Html.LabelFor(model => model.DistanceFromPopulace, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.DistanceFromPopulace, "Miles From Population", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-8">
             @Html.EditorFor(model => model.DistanceFromPopulace, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.DistanceFromPopulace, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.RoadAccess, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.RoadAccess, "Road Access", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.RoadAccess)
@@ -42,7 +37,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CityWater, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CityWater, "City Water", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.CityWater)
@@ -52,7 +47,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CityElectric, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CityElectric, "City Electric", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.CityElectric)
@@ -62,7 +57,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CitySewer, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CitySewer, "City Sewer", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.CitySewer)
@@ -72,7 +67,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Internet, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Internet, "Internet", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.Internet)
@@ -82,7 +77,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.AlternateWater, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.AlternateWater, "Alternate Water", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.AlternateWater)
@@ -92,7 +87,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.AlternateElectric, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.AlternateElectric, "Alternate Electric", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.AlternateElectric)
@@ -102,7 +97,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.AlternateSewage, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.AlternateSewage, "Alternate Sewage", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.AlternateSewage)
@@ -112,7 +107,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.BodyOfWater, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.BodyOfWater, "Watersource on Property", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.BodyOfWater)
@@ -122,7 +117,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.NearbyBodyOfWater, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.NearbyBodyOfWater, "Off-property Watersource", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.NearbyBodyOfWater)

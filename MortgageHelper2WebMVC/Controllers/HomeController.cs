@@ -26,16 +26,8 @@ namespace MortgageHelper2WebMVC.Controllers
 
             return View();
         }
-        public ActionResult AddProperty()
+        public ActionResult IntroGuide()
         {
-            ViewBag.Message = "Add a new property to your list.";
-
-            return View();
-        }
-        public ActionResult CompareProperties()
-        {
-            ViewBag.Message = "Sort your current properties to see how they stack up to one another.";
-
             return View();
         }
     }

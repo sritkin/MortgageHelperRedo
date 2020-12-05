@@ -1,7 +1,23 @@
 ﻿@{
     ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+}<br />
+<h1>About</h1>
+<br />
+<h2>What Is Mortgage Heper?</h2>
+<p>At it's core, Mortgage Helper is a Web MVC Database hosted on Azure. It is designed to store properties that a user finds while searching for a new home. Mortgage Helper further provides the ability to store amentities associated with these properties, auto-generate a rating for each property created, and gives users the option to calculate mortgage rates based on properties that exist in the database.</p>
+<br />
+<h2>Why Does It Exist?</h2>
+<p>This is a tool primarily designed for my personal use and the use of my friends. I and many people I know have an interest in purchasing rural properties, which comes with more difficulty than buying a new home in the suburbs or in the city. When purchasing a property farther away from civilization, there are more things to consider. The amenities and the ratings based off those amenities are designed to reflect that. The auto-generated ratings are designed to reflect the values that I am personally looking for when evaluating a property.</p>
+<br />
+<h2>What Should I Do Next?</h2>
+<p>If you are interested in using Mortgage Helper, or just curious about how it works, click the link below to check out the guide. It explains in more detail how the ratings and amenities function. It also explains how you can use this site without interacting with those features - as this site does also work as a simple database for storing properties and calculating mortgages.</p>
+<br />
+<hr />
 
-<p>Use this area to provide additional information.</p>
+<tr>
+    <td>
+        | @Html.ActionLink("Back to Home Page", "Index") |
+        @Html.ActionLink("Read Intro Guide", "IntroGuide") |
+
+    </td>
+</tr>

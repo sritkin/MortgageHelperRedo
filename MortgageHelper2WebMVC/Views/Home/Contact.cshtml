@@ -1,17 +1,36 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<h1 id="Contact">Contact</h1>
+<p>Want to talk to the maker of Morgage Helper? Send him a message below!</p>
+<hr />
+
+
+<tr>
+    <td>
+        <form action="https://formspree.io/f/mdopaaoq" method="post">
+
+            <label class="col-lg-12 col-md-12 col-sm-12"> <input type="text" style="border: 1px solid #6F2378;" name="_replyto" placeholder="Email" onfocus="this.placeholder =''"> </label>
+
+
+
+            <label class="col-lg-12 col-md-12 col-sm-12"><textarea rows=4 cols=60 name="message" placeholder="Type message here" onfocus="this.placeholder =''" ;></textarea> </label>
+
+
+
+
+            <button id="buttonspacer" type="submit">Send</button>
+
+
+        </form>
+    </td>
+</tr>
+<br />
+<br />
+
+<tr>
+    <td>
+        | @Html.ActionLink("Back to Home Page", "Index") |
+
+    </td>
+</tr>
