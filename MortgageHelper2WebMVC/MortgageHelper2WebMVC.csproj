@@ -242,11 +242,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
     <Content Include="Views\Feature\Index.cshtml" />
-    <Content Include="Views\Mortgage\Index.cshtml" />
     <Content Include="Views\Rating\Index.cshtml" />
     <Content Include="Views\Property\Create.cshtml" />
     <Content Include="Views\Feature\Create.cshtml" />
-    <Content Include="Views\Mortgage\Create.cshtml" />
     <Content Include="Views\Rating\Create.cshtml" />
     <Content Include="Views\Home\CompareProperties.cshtml" />
     <Content Include="Views\Property\Details.cshtml" />

@@ -14,5 +14,6 @@ namespace MortgageHelperModels.MortgageModels
         public decimal Payment { get; set; }
         public decimal TotalLoanAmount { get; set; }
         public decimal MonthlyPayment { get; set; }
+        public decimal Price { get; set; }
     }
 }

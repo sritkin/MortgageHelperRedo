@@ -18,37 +18,19 @@ namespace MortgageHelperServices
             _userId = userId;
         }
 
-        public bool CreateMortgage(MortgageCreate model)
+        public bool CreateMortgage(MortgageDetail model, int id)
         {
             var entity = new Mortgage()
             {
                 UserID = _userId,
-                PropertyID = model.PropertyID,
+                PropertyID = id,
                 Interest = model.Interest,
                 Period= model.Period,
                 Payment= model.Payment,
+
+
                 TotalLoanAmount = model.TotalLoanAmount,
                 MonthlyPayment = model.MonthlyPayment,
-                /*Zero = model.Zero,
-                Five = model.Five,
-                Ten = model.Ten,
-                Fifteen = model.Fifteen,
-                Twenty = model.Twenty,
-                TwentyFive =model.TwentyFive,
-                Thirty = model.Thirty,
-                ThirtyFive = model.ThirtyFive,
-                Forty = model.Forty,
-                FortyFive = model.FortyFive,
-                Fifty = model.Fifty,
-                FiftyFive = model.FiftyFive,
-                Sixty = model.Sixty,
-                SixtyFive = model.SixtyFive,
-                Seventy = model.Seventy,
-                SeventyFive = model.SeventyFive,
-                Eighty = model.Eighty,
-                EightyFive = model.EightyFive,
-                Ninety = model.Ninety,
-                NinetyFive = model.NinetyFive*/
 
             };
 
@@ -86,10 +68,12 @@ namespace MortgageHelperServices
                         Period = entity.Period,
                         Payment = entity.Payment,
                         TotalLoanAmount = entity.TotalLoanAmount,
-                        MonthlyPayment = entity.MonthlyPayment
+                        MonthlyPayment = entity.MonthlyPayment,
+                        Price = entity.Property.Price
                     };
             }
         }
+
         public bool DeleteAllMortgagesGivenPropertyID(int id)
         {
             using (var ctx = new ApplicationDbContext())
